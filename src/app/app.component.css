@@ -3,6 +3,13 @@
   text-align: center;
 }
 
-.main img {
+.map {
   width: 80%;
+}
+
+.click-tavern {
+  width: 15%;
+  position: absolute;
+  top:22%;
+  left: 42%;
 }
