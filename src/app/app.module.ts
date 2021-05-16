@@ -8,12 +8,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TavernComponent } from './tavern/tavern.component'
 import {HttpClientModule} from '@angular/common/http';
 import { GardenComponent } from './garden/garden.component';
+import { ForgeComponent } from './forge/forge.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TavernComponent,
-    GardenComponent
+    GardenComponent,
+    ForgeComponent
   ],
   imports: [
     HttpClientModule,

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {TavernComponent} from "./tavern/tavern.component";
 import {GardenComponent} from "./garden/garden.component";
+import {ForgeComponent} from "./forge/forge.component";
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,14 @@ clickTavern() {
   clickGarden() {
     console.log("Jardin clické");
     const dialogRef = this.dialog.open(GardenComponent, {
+      width: '40%',
+      height: '50%'
+    })
+  }
+
+  clickForge() {
+    console.log("Forge clické");
+    const dialogRef = this.dialog.open(ForgeComponent, {
       width: '40%',
       height: '50%'
     })
