@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TavernComponent } from './tavern/tavern.component'
 import {HttpClientModule} from '@angular/common/http';
+import { GardenComponent } from './garden/garden.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TavernComponent
+    TavernComponent,
+    GardenComponent
   ],
   imports: [
     HttpClientModule,

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Component({
-  selector: 'app-tavern',
-  templateUrl: './tavern.component.html',
-  styleUrls: ['./tavern.component.css']
+  selector: 'app-garden',
+  templateUrl: './garden.component.html',
+  styleUrls: ['./garden.component.css']
 })
-export class TavernComponent implements OnInit {
+export class GardenComponent implements OnInit {
 
   gold: number = 0;
   carrot: number = 0;
@@ -17,10 +17,9 @@ export class TavernComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.getInventories();
-
   }
+
 
   getInventories() {
 
@@ -32,15 +31,13 @@ export class TavernComponent implements OnInit {
     })
   }
 
-  sellDrink() {
-    console.log('boisson vendue');
+  harvestCarrot() {
+    console.log('récupére une carotte.');
     console.log(this.inventories);
-    this.http.put<any>('http://localhost:9000/inventories/'+ this.inventories.id, { inventories: this.inventories }).subscribe(data => {
+    this.http.put<any>('http://localhost:9000/inventories/carrot/'+ this.inventories.id, { inventories: this.inventories }).subscribe(data => {
       this.getInventories();
       console.log('operation done');
     })
   }
-
-
 
 }
