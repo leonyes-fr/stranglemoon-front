@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {ConstructionInstance} from "../model/ConstructionInstance.model";
 
 @Component({
   selector: 'app-forge',
@@ -11,12 +12,14 @@ export class ForgeComponent implements OnInit {
   actualRank: number = 0;
   nextRank: any;
   name: String = '';
-  constructionInstance: any ;
+  constructionInstance: ConstructionInstance;
 
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    this.constructionInstance = new ConstructionInstance();
+  }
 
   ngOnInit(): void {
     this.getConstructionInstances();
@@ -25,7 +28,7 @@ export class ForgeComponent implements OnInit {
 
   getConstructionInstances() {
     this.http.get<any>('http://localhost:9000/constructioninstances').subscribe(data => {
-    this.actualRank = data[0].actualRank;
+    this.constructionInstance.actualRank = data[0].actualRank;
     this.name = data[0].name;
     this.constructionInstance = data[0];
     })
