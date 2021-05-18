@@ -9,9 +9,7 @@ import {ConstructionInstance} from "../model/ConstructionInstance.model";
 })
 export class ForgeComponent implements OnInit {
 
-  actualRank: number = 0;
   nextRank: any;
-  name: String = '';
   constructionInstance: ConstructionInstance;
 
 
@@ -26,25 +24,22 @@ export class ForgeComponent implements OnInit {
 
   }
 
-  getConstructionInstances() {
+  getConstructionInstances() { // récupére l'instance de la taverne
     this.http.get<any>('http://localhost:9000/constructioninstances').subscribe(data => {
-    this.constructionInstance.actualRank = data[0].actualRank;
-    this.name = data[0].name;
     this.constructionInstance = data[0];
-    })
+    });
     this.getConstructionCost();
   }
 
-  getConstructionCost() {
+  getConstructionCost() { // récupére le prochain cout en or d'amélioration de la taverne.
     this.http.get<any>('http://localhost:9000/constructioncosts').subscribe(data => {
-      this.nextRank = data.find((rank : any)=> rank.rank === this.actualRank + 1);
+      this.nextRank = data.find((rank : any)=> rank.rank === this.constructionInstance.actualRank + 1);
     })
   }
 
-  updateTavern() {
+  updateTavern() { // doit controler si assez d'argent et lancer une update sur l'instance taverne pour la faire monter d'un niveau.
     this.http.put<any>('http://localhost:9000/constructioninstance/nextrank/'+ this.constructionInstance.id, { nextRank: this.nextRank }).subscribe(data => {
       this.getConstructionInstances();
-      console.log('operation done');
     })
   }
 
