@@ -15,9 +15,7 @@ export class ForgeComponent implements OnInit {
 
   constructor(
     private http: HttpClient
-  ) {
-    this.constructionInstance = new ConstructionInstance();
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getConstructionInstances();
