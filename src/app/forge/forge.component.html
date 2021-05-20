@@ -2,10 +2,10 @@
 
 
 <div>
-  <p>Niveau de votre taverne : {{constructionInstance.actualRank}}</p>
-  <button (click)="updateTavern()">Améliorer pour {{nextRank.tavern}} piéces d'or.</button>
+  <p>Niveau de votre taverne : {{tavern.actualRank}}</p>
+  <button (click)="updateTavern()">Améliorer pour {{nextRankTavern.tavern}} piéces d'or.</button>
 
-  <p>Niveau de votre jardin : {{}</p>
-  <button>Améliorer pour {{} piéces d'or.</button>
+  <p>Niveau de votre jardin : {{farm.actualRank}}</p>
+  <button (click)="updateFarm()">Améliorer pour {{nextRankFarm.farm}} piéces d'or.</button>
 
 </div>

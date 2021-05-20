@@ -9,8 +9,11 @@ import {ConstructionInstance} from "../model/ConstructionInstance.model";
 })
 export class ForgeComponent implements OnInit {
 
-  nextRank: any;
+  nextRankTavern: any;
+  nextRankFarm: any;
   constructionInstance: ConstructionInstance;
+  tavern: ConstructionInstance;
+  farm: ConstructionInstance;
 
 
   constructor(
@@ -19,24 +22,32 @@ export class ForgeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getConstructionInstances();
-
   }
 
-  getConstructionInstances() { // récupére l'instance de la taverne
+  getConstructionInstances() { // récupére l'instance de la taverne et du jardin avec son rank
     this.http.get<any>('http://localhost:9000/constructioninstances').subscribe(data => {
-    this.constructionInstance = data[0];
+      this.farm = data[0];
+      this.tavern = data[1];
     });
     this.getConstructionCost();
   }
 
   getConstructionCost() { // récupére le prochain cout en or d'amélioration de la taverne.
     this.http.get<any>('http://localhost:9000/constructioncosts').subscribe(data => {
-      this.nextRank = data.find((rank : any)=> rank.rank === this.constructionInstance.actualRank + 1);
+      this.nextRankTavern = data.find((rank : any)=> rank.rank === this.tavern.actualRank + 1);
+      this.nextRankFarm = data.find((rank : any)=> rank.rank === this.farm.actualRank + 1);
+      console.log(this.nextRankFarm);
     })
   }
 
   updateTavern() { // doit controler si assez d'argent et lancer une update sur l'instance taverne pour la faire monter d'un niveau.
-    this.http.put<any>('http://localhost:9000/constructioninstance/nextrank/'+ this.constructionInstance.id, { nextRank: this.nextRank }).subscribe(data => {
+    this.http.put<any>('http://localhost:9000/constructioninstance/nextrank/'+ this.tavern.id, { nextRank: this.nextRankTavern }).subscribe(data => {
+      this.getConstructionInstances();
+    })
+  }
+
+  updateFarm() {
+    this.http.put<any>('http://localhost:9000/constructioninstance/nextrank/'+ this.farm.id, { nextRank: this.nextRankFarm }).subscribe(data => {
       this.getConstructionInstances();
     })
   }

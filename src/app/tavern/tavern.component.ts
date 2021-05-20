@@ -18,16 +18,12 @@ export class TavernComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.getInventories();
-
   }
 
   getInventories() {
-
     this.http.get<any>('http://localhost:9000/inventories').subscribe(data => {
       this.inventories  = data[0];
-      console.log(data);
     })
   }
 
