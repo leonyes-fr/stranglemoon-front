@@ -1,6 +1,10 @@
 html {
-  background-color: #5e5d5b;
+  background-color: #164A41;
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-dialog mat-dialog-container {
+  padding: 0;
+}
