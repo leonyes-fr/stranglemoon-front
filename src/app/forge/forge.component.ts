@@ -27,7 +27,7 @@ export class ForgeComponent implements OnInit {
   getConstructionInstances() { // récupére l'instance de la taverne et du jardin avec son rank
     this.http.get<any>('http://localhost:9000/constructioninstances').subscribe(data => {
       this.tavern = data.find((name: any) => name.name === 'tavern');
-      this.farm = data.find((name: any) => name.name === 'garden');
+      this.farm = data.find((name: any) => name.name === 'farm');
     });
     this.getConstructionCost();
   }
