@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {TavernComponent} from "./tavern/tavern.component";
-import {GardenComponent} from "./garden/garden.component";
+import {FarmComponent} from "./farm/farm.component";
 import {ForgeComponent} from "./forge/forge.component";
 
 @Component({
@@ -27,8 +27,8 @@ clickTavern() {
   })
 }
 
-  clickGarden() {
-    const dialogRef = this.dialog.open(GardenComponent, {
+  clickFarm() {
+    const dialogRef = this.dialog.open(FarmComponent, {
       panelClass: 'mat-dialog',
       width: '40%',
       height: '50%'

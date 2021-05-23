@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Component({
-  selector: 'app-garden',
-  templateUrl: './garden.component.html',
-  styleUrls: ['./garden.component.css']
+  selector: 'app-farm',
+  templateUrl: './farm.component.html',
+  styleUrls: ['./farm.component.css']
 })
-export class GardenComponent implements OnInit {
+export class FarmComponent implements OnInit {
 
   gold: number = 0;
   carrot: number = 0;
