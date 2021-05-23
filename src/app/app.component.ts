@@ -20,7 +20,6 @@ export class AppComponent {
 
 
 clickTavern() {
-  console.log("taverne clické");
   const dialogRef = this.dialog.open(TavernComponent, {
     panelClass: 'mat-dialog',
     width: '40%',
@@ -29,7 +28,6 @@ clickTavern() {
 }
 
   clickGarden() {
-    console.log("Jardin clické");
     const dialogRef = this.dialog.open(GardenComponent, {
       panelClass: 'mat-dialog',
       width: '40%',
@@ -38,7 +36,6 @@ clickTavern() {
   }
 
   clickForge() {
-    console.log("Forge clické");
     const dialogRef = this.dialog.open(ForgeComponent, {
       panelClass: 'mat-dialog',
       width: '40%',

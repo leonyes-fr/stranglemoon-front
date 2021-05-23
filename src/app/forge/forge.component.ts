@@ -26,8 +26,8 @@ export class ForgeComponent implements OnInit {
 
   getConstructionInstances() { // récupére l'instance de la taverne et du jardin avec son rank
     this.http.get<any>('http://localhost:9000/constructioninstances').subscribe(data => {
-      this.farm = data[0];
-      this.tavern = data[1];
+      this.tavern = data.find((name: any) => name.name === 'tavern');
+      this.farm = data.find((name: any) => name.name === 'garden');
     });
     this.getConstructionCost();
   }
@@ -36,7 +36,6 @@ export class ForgeComponent implements OnInit {
     this.http.get<any>('http://localhost:9000/constructioncosts').subscribe(data => {
       this.nextRankTavern = data.find((rank : any)=> rank.rank === this.tavern.actualRank + 1);
       this.nextRankFarm = data.find((rank : any)=> rank.rank === this.farm.actualRank + 1);
-      console.log(this.nextRankFarm);
     })
   }
 

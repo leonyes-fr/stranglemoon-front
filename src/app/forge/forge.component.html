@@ -1,9 +1,9 @@
 <div class="menu">
   <h1>Forge du village.</h1>
   <div>
-    <p>Niveau de votre taverne : {{tavern.actualRank}}</p>
-    <button (click)="updateTavern()">Améliorer pour {{nextRankTavern.tavern}} piéces d'or.</button>
+    <p>Niveau de votre taverne : {{tavern?.actualRank}}</p>
+    <button (click)="updateTavern()">Améliorer pour {{nextRankTavern?.tavern}} piéces d'or.</button>
     <p>Niveau de votre jardin : {{farm.actualRank}}</p>
-    <button (click)="updateFarm()">Améliorer pour {{nextRankFarm.farm}} piéces d'or.</button>
+    <button (click)="updateFarm()">Améliorer pour {{nextRankFarm?.farm}} piéces d'or.</button>
   </div>
 </div>
