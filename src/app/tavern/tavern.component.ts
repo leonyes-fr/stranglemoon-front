@@ -28,7 +28,7 @@ export class TavernComponent implements OnInit {
   }
 
   sellDrink() {
-    this.http.put<any>('http://localhost:9000/inventories/'+ this.inventories.id, { inventories: this.inventories }).subscribe(data => {
+    this.http.put<any>('http://localhost:9000/inventories/gold/'+ this.inventories.id, { inventories: this.inventories }).subscribe(data => {
       this.getInventories();
     })
   }
