@@ -1,6 +1,22 @@
 <div class="main">
-  <img class="map" src="assets/map.png">
-  <img class="click-tavern" (click)="clickTavern()" src="assets/clicktransparent/clicktavern.png">
-  <img class="click-farm" (click)="clickFarm()" src="assets/clicktransparent/clicktavern.png">
-  <img class="click-forge" (click)="clickForge()" src="assets/clicktransparent/clicktavern.png">
+ <h1>Bienvenue</h1>
+
+
+
+
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+    <div>
+      <label for="username">Nom d'utilisateur</label>
+      <input type="text" id="username"  formControlName="username">
+    </div>
+    <div>
+      <label for="password">Mot de passe</label>
+      <input type="text" id="password"  formControlName="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+
+
 </div>

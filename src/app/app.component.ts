@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {TavernComponent} from "./tavern/tavern.component";
-import {FarmComponent} from "./farm/farm.component";
-import {ForgeComponent} from "./forge/forge.component";
 import {HttpClient} from "@angular/common/http";
 import {GlobalService} from "./misc/global.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -13,8 +11,11 @@ import {GlobalService} from "./misc/global.service";
 })
 export class AppComponent implements OnInit{
   title = 'stranglemoon-front';
+  userForm: FormGroup;
+
 
   constructor(
+    private formBuilder: FormBuilder,
     public dialog: MatDialog,
     private http: HttpClient,
     public globalService: GlobalService
@@ -23,38 +24,19 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.OnLaunch();
+    this.initForm();
   }
 
+  initForm() {
+    this.userForm = this.formBuilder.group({
+      username: 'Username',
+      password: 'Password',
+    });
+  }
 
-  OnLaunch() {
+  onSubmitForm() {
     this.http.get<any>('http://localhost:9000/auth').subscribe(token => {
-      this.globalService.setToken(token);
-    })
-  }
-
-
-  clickTavern() {
-    const dialogRef = this.dialog.open(TavernComponent, {
-      panelClass: 'mat-dialog',
-      width: '40%',
-      height: '50%'
-    })
-  }
-
-  clickFarm() {
-    const dialogRef = this.dialog.open(FarmComponent, {
-      panelClass: 'mat-dialog',
-      width: '40%',
-      height: '50%'
-    })
-  }
-
-  clickForge() {
-    const dialogRef = this.dialog.open(ForgeComponent, {
-      panelClass: 'mat-dialog',
-      width: '40%',
-      height: '50%'
+      this.globalService.setToken(token.token);
     })
   }
 

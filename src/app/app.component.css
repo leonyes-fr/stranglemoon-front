@@ -1,29 +1,3 @@
-
 .main {
   text-align: center;
-}
-
-.map {
-  width: 80%;
-}
-
-.click-tavern {
-  width: 15%;
-  position: absolute;
-  top:22%;
-  left: 42%;
-}
-
-.click-farm {
-  width: 15%;
-  position: absolute;
-  top:45%;
-  left: 30%;
-}
-
-.click-forge {
-  width: 15%;
-  position: absolute;
-  top:30%;
-  left: 70%;
 }

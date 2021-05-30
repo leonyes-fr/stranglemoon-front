@@ -11,20 +11,24 @@ import { FarmComponent } from './farm/farm.component';
 import { ForgeComponent } from './forge/forge.component';
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {GlobalService} from "./misc/global.service";
+import { MapComponent } from './map/map.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     TavernComponent,
     FarmComponent,
-    ForgeComponent
+    ForgeComponent,
+    MapComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     MatDialogModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
