@@ -35,9 +35,12 @@ export class AppComponent implements OnInit{
   }
 
   onSubmitForm() {
-    this.http.get<any>('http://localhost:9000/auth').subscribe(token => {
+    let tempCredentials = this.userForm.value;
+    let credentials  = Object.values(tempCredentials);
+    this.http.post<any>('http://localhost:9000/auth', credentials ).subscribe(token => {
       this.globalService.setToken(token.token);
     })
   }
+
 
 }
