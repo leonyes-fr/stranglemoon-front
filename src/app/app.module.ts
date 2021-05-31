@@ -13,6 +13,15 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
 import {GlobalService} from "./misc/global.service";
 import { MapComponent } from './map/map.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {RouterModule, Routes} from "@angular/router";
+import { LoginComponent } from './login/login.component';
+
+
+const routes: Routes = [
+  {path: '', component: LoginComponent},
+  {path: 'map', component: MapComponent}
+
+];
 
 @NgModule({
   declarations: [
@@ -20,7 +29,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     TavernComponent,
     FarmComponent,
     ForgeComponent,
-    MapComponent
+    MapComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,
@@ -28,7 +38,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatDialogModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
