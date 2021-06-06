@@ -17,6 +17,7 @@ import {RouterModule, Routes} from "@angular/router";
 import { LoginComponent } from './login/login.component';
 import { PondComponent } from './pond/pond.component';
 import { LaboratoryComponent } from './laboratory/laboratory.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
     HttpClientModule,
     BrowserModule,
     MatDialogModule,
+    MatTabsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

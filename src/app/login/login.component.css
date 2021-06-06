@@ -1,3 +1,13 @@
 .main {
   text-align: center;
 }
+
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+
+.tab {
+  width: 30%;
+  text-align: center;
+  margin: 0 auto;
+}
