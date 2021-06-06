@@ -34,5 +34,4 @@ export class TavernComponent implements OnInit {
   }
 
 
-
 }

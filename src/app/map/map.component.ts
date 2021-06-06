@@ -4,6 +4,8 @@ import {TavernComponent} from "../tavern/tavern.component";
 import {FarmComponent} from "../farm/farm.component";
 import {ForgeComponent} from "../forge/forge.component";
 import {HttpClient} from "@angular/common/http";
+import {PondComponent} from "../pond/pond.component";
+import {LaboratoryComponent} from "../laboratory/laboratory.component";
 
 @Component({
   selector: 'app-map',
@@ -41,6 +43,22 @@ export class MapComponent implements OnInit{
 
   clickForge() {
     const dialogRef = this.dialog.open(ForgeComponent, {
+      panelClass: 'mat-dialog',
+      width: '40%',
+      height: '50%'
+    })
+  }
+
+  clickPond() {
+    const dialogRef = this.dialog.open(PondComponent, {
+      panelClass: 'mat-dialog',
+      width: '40%',
+      height: '50%'
+    })
+  }
+
+  clickLaboratory() {
+    const dialogRef = this.dialog.open(LaboratoryComponent, {
       panelClass: 'mat-dialog',
       width: '40%',
       height: '50%'

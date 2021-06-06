@@ -27,3 +27,17 @@
   top:30%;
   left: 70%;
 }
+
+.click-pond {
+  width: 15%;
+  position: absolute;
+  top:62%;
+  left: 42%;
+}
+
+.click-laboratory {
+  width: 15%;
+  position: absolute;
+  top:12%;
+  left: 15%;
+}
